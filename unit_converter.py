@@ -1,24 +1,32 @@
 #Conversion functions
 def convert(fro, to, val):
+    orig_val = val
     if fro == "C" and to == "F":
-        return val * 1.8 + 32
+        result = val * 1.8 + 32
     elif fro == "F" and to == "C":
-        return (val - 32) / 1.8
+        result = (val - 32) / 1.8
     elif fro == "in" and to =="cm":
-        return val * 2.54
+        result = val * 2.54
     elif fro =="ft" and to == "cm":
-        return val* 30.48
+        result = val* 30.48
     elif fro == "mi" and to =="km":
-        return val * 1.61
+        result = val * 1.61
     elif fro =="scm" and to =="km":
-        return val * 10
+        result = val * 10
     elif fro == "lb" and to == "kg":
-        return val * 0.45
+        result = val * 0.45
     elif fro == "m" and to == "ft": 
-        return val * 3.28
+        result = val * 3.28
     elif fro == "km" and to == "mi":
-        return val * 0.62
+        result = val * 0.62
     elif fro == "kg" and to == "lb":
-        return val * 2.2
+        result = val * 2.2
     else:
-        return val
+        return "Conversion not possible, please try other units"
+    
+    return f"{orig_val}{fro} converted to {to} is {result}{to}"
+
+user_val = input("Enter the value you want to convert (e.g. 5): ")
+user_fro = input("Enter the unit you want to convert from (e.g. C): ")
+user_to = input("Enter the unit you want to convert to (e.g. F): ")
+print(convert(user_fro, user_to, float(user_val)))
